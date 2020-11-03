@@ -1,0 +1,20 @@
+{
+  "name": "6502",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node index.js",
+    "test": "tap"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drazisil/6502.git"
+  },
+  "keywords": [],
+  "author": "Joe Becher <jwbecher@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/drazisil/6502/issues"
+  },
+  "homepage": "https://github.com/drazisil/6502#readme"
+}
