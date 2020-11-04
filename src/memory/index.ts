@@ -2,26 +2,43 @@
  * 
  */
 export class Memory {
-    private buffer: DataView
+    private buffer: Buffer
     
     constructor(amountOfMemory: number) {
-        if ((amountOfMemory % 8) !== 0) {
-            throw new RangeError('Amount of memory not divisable by 8')
-        }
-        const ab = new ArrayBuffer(amountOfMemory)
-        this.buffer = new DataView(ab)
+
+        this.buffer = Buffer.alloc(amountOfMemory)
         return this
     }
 
-    set(idx: number, value: number) {
+    set8(idx: number, value: number) {
         if (idx > this.buffer.byteLength || idx < 0) {
             throw new RangeError('Index outside of memory area')
         }
-        this.buffer.setUint8(idx, value)
+        this.buffer.writeInt8(value, idx)
     }
 
-    get(idx: number) {
-        return this.buffer.getUint8(idx)
+    set16(idx: number, value: number) {
+        if (idx > this.buffer.byteLength || idx < 0) {
+            throw new RangeError('Index outside of memory area')
+        }
+        this.buffer.writeUInt16LE(value, idx)
+    }
+
+
+    get8(idx: number) {
+        return this.buffer.readInt8(idx)
+    }
+
+    get16(idx: number) {
+        return this.buffer.readInt8(idx)
+    }
+
+    asNumber() {
+        return Number.parseInt(this.buffer.join(""))
+    }
+
+    asHex() {
+        return this.buffer.toString('hex')
     }
 }
 
