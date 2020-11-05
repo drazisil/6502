@@ -20,36 +20,36 @@ export class MOS6502 {
             PC: new Register(16),
             FLAGS: new FlagRegister(8, [
                 {
-                    idx: 0,
                     name: "C",
+                    value: false,
                 },
                 {
-                    idx: 1,
                     name: "Z",
+                    value: false,
                 },
                 {
-                    idx: 2,
                     name: "I",
+                    value: false,
                 },
                 {
-                    idx: 3,
                     name: 'D',
+                    value: false,
                 },
                 {
-                    idx: 4,
                     name: 'B',
+                    value: false,
                 },
                 {
-                    idx: 5,
                     name: '-',
+                    value: false,
                 },
                 {
-                    idx: 6,
                     name: 'V',
+                    value: false,
                 },
                 {
-                    idx: 7,
-                    name: 'N'
+                    name: 'N',
+                    value: false,
                 },
             ])
         }

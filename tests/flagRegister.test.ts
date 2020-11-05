@@ -4,13 +4,13 @@ import { FlagRegister, RegisterMap } from '../src/memory/flagRegister'
 tap.test('Motorolla 6502', (t: any) => {
     const flagMap: RegisterMap[] = [
         {
-            idx: 1,
             name: 'A',
+            value: false,
             
         },
         {
-            idx: 3,
             name: 'test',
+            value: false,
         }
     ]
     let register: FlagRegister
@@ -18,5 +18,8 @@ tap.test('Motorolla 6502', (t: any) => {
     t.equal(typeof register!, "object")
     t.throws(() => { register!.getFlag('D') }, /Flag D was not found/)
     t.equal(register!.getFlag('test'), false)
+    register!.setFlag('test', true)
+    t.equal(register!.getFlag('test'), true)
+    t.equal(register!._dump().length, 2)
     t.end()
 })

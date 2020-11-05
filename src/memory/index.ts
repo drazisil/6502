@@ -5,7 +5,6 @@ export class Memory {
     private buffer: Buffer
     
     constructor(amountOfMemory: number) {
-
         this.buffer = Buffer.alloc(amountOfMemory)
         return this
     }

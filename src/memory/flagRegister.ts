@@ -1,18 +1,16 @@
 import { Memory} from './index'
 
 export interface RegisterMap {
-    idx: number,
     name: string,
+    value: boolean,
 }
 
 export class FlagRegister {
-    private buffer: Memory
     private flagMap: RegisterMap[]
     size: number
     
 
     constructor(size: number, map: RegisterMap[]) {
-        this.buffer = new Memory(size)
         this.size = size
         this.flagMap = map
         return this
@@ -27,36 +25,19 @@ export class FlagRegister {
         if (flags.length === 0) {
             throw new Error(` Flag ${flagName} was not found`)
         }
-        return this._isBitSet(this.buffer.asNumber(), flags[0].idx)
-        
-
+        return flags[0].value        
     }
+
+    setFlag = (flagName: string, value: boolean) => {
+        this.flagMap.forEach(f => {
+            if (f.name === flagName) {
+                f.value = value
+            }
+        })
+    }
+
 
     _dump = () => {
-        return this.buffer
+        return this.flagMap
     }
-
-    // Thanks to https://bits.stephan-brumme.com/basics.html
-    _isBitSet(value: number, index: number) {
-        value >>= index
-        return (value & 1) != 0
-    }
-
-    _toggleBit(value: number, index: number) {
-        const mask = 1 << index
-        return value ^ mask
-    }
-
-    _setBit(value: number, index:number) {
-        const mask = 1 << index
-        return value & ~mask
-    }
-
-    _clearBit(value: number, index: number) {
-        const mask = 1 >> index
-        return value & ~mask
-    }
-
-
-
 }
