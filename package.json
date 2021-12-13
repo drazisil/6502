@@ -22,6 +22,6 @@
     "@tsconfig/recommended": "1.0.1",
     "@types/node": "16.11.12",
     "tap": "15.1.5",
-    "typescript": "4.5.2"
+    "typescript": "4.5.4"
   }
 }
