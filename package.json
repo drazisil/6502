@@ -20,7 +20,7 @@
   "homepage": "https://github.com/drazisil/6502#readme",
   "devDependencies": {
     "@tsconfig/recommended": "1.0.6",
-    "@types/node": "20.12.5",
+    "@types/node": "20.12.7",
     "tap": "18.7.2",
     "typescript": "5.4.4"
   }
