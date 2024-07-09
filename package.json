@@ -21,7 +21,7 @@
   "devDependencies": {
     "@tsconfig/recommended": "1.0.7",
     "@types/node": "20.14.10",
-    "tap": "20.0.3",
+    "tap": "21.0.0",
     "typescript": "5.5.3"
   }
 }
